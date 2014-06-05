@@ -1,0 +1,46 @@
+先说下我自己的工作情况，估计我公司的业务以及数据量以及工作还没有楼主的大，所以只能抛砖引玉了。
+
+我是半个mysql dba，还有半个mysql dbd。就是开发管理一手抓。数据库总量50G。
+
+现在有5个数据库服务器归我管，生产库在aws，不归我管，所以我的实际经验有点可怜啊。
+
+我的监控模式：
+1， 一般是开着mysql adminstrator，查看各种参数以及表的容量。
+2，每天打开邮件，确定备份正确无误。一天一次
+3，每天监控磁盘空间，确定有足够空间。一天一次
+4，每天查看err日志。一天3次
+5，每天show slave status, show master status;查看复制情况。一天3次
+6，每天坚持表是否损坏。一天3次
+7，每天查看slow log。一天3次
+
+由于量少，也由于自己没有多少经验，e文也有限，在学习那些开源免费工具的时候，比较费劲，至今还是全手工监控。
+
+
+mystat是我用Perl写的一款MySQL数据库实时监控脚本，基于MySQL的show global status和show global variables结果进行分析实时显示。能通过参数控制轮询间隔、轮询次数、监控项目。使用了strict;DBI;Switch;DBD::mysql;Getopt::Std;Term::ANSIColor;这几个Perl模块，通过CPAN都可以安装。
+已经支持Linux,Windows,MacOS等各种有Perl的操作系统。
+我已经尽力测试Bug，不过使用场景各异，如果发现Bug，请联系我，penglixun(at)gmail.com。
+更新会发在我的网站：www.penglixun.com
+
+脚本包括如下参数
+-i 轮询间隔 默认1s
+-c 轮询次数 默认无限
+-n 监控项目 默认basic
+包括: all(全部项目), basic(基本项目), innodb(InnoDB项目), myisam(MyISAM项目)四个套装
+以及下面的单项：
+traffic – Network Traffic
+kbuffer – Key Buffer
+qcache – Query Cache
+thcache – Thread Cache
+tbcache – Table Cache
+tmp – Temporary Table
+query – Queries Statistics
+select – Select Statistics
+sort – Sort Statistics
+innodb_bp – InnoDB Buffer Pool
+项目之间可能有交叉的部分，取最大并集。
+-d 取消项目 默认noneDB
+包括: var(变量部分), innodb(InnoDB部分), none(无)
+同时跟-n出现一样的项目，则优先处理-d。也就是说-n innodb -d innodb，不会显示innodb的部分。
+-h 主机名 默认空
+-u 用户名 默认空
+-p 密码 默认空

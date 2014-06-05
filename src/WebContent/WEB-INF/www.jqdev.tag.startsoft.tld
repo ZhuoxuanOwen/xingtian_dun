@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.0" xmlns="http://java.sun.com/xml/ns/j2ee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd">
+ <tlib-version>1.1</tlib-version>
+ <short-name>ot</short-name>
+ <uri>http://www.starsoft.com.cn</uri>
+ <!-- 分页的标签 -->
+ <tag>
+  <name>pager</name>
+  <tag-class>com.starsoft.ssi.common.page.tags.PageTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+   <name>pager</name>
+   <required>true</required>
+   <fragment>true</fragment>
+  </attribute>
+  <attribute>
+   <name>align</name>
+   <fragment>true</fragment>
+  </attribute>
+  <attribute>
+   <name>style</name>
+   <fragment>true</fragment>
+  </attribute>
+  <attribute>
+   <name>input</name>
+   <fragment>true</fragment>
+  </attribute>
+  <attribute>
+   <name>select</name>
+   <fragment>true</fragment>
+  </attribute>
+ </tag>
+
+ <!-- 是否显示功能 -->
+ <tag>
+  <name>allowFunction</name>
+  <tag-class>com.starsoft.jq.dev.system.tags.FunctionAllowTag</tag-class>
+  <body-content>JSP</body-content>
+  <attribute>
+   <name>code</name>
+   <required>true</required>
+   <fragment>true</fragment>
+  </attribute>
+  <attribute>
+   <name>functions</name>
+   <required>true</required>
+   <fragment>true</fragment>
+  </attribute>
+ </tag>
+</taglib>

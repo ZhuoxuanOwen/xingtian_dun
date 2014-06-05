@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<!-- 表资源管理 -->
+<sqlMap namespace="field">
+	<typeAlias alias="field"	type="com.zhuoxuan.xingtian.res.entity.FieldDO" />
+	<typeAlias alias="pager"  type="com.zhuoxuan.common.page.Page" />
+	
+		<!-- 添加字段 -->
+	<insert id="addField" parameterClass="field">
+		<![CDATA[
+		insert into res_field (database_id, table_id, field_name, business_name, 
+			attr_name, field_type, attr_type, field_size,is_auto_increment,is_not_null, field_remark)
+	    values(#databaseId#,#tableId#, #fieldName#,#businessName#,#attrName#, 
+			#fieldType#,#attrType#,#fieldSize#,#isAutoIncrement#,#isNotNull#, #fieldRemark#)
+	    ]]>
+	</insert>
+	
+	<!-- 删除属于数据信息的列 -->
+	<delete id="deleteDbFieldList" parameterClass="String">
+		 <![CDATA[
+	 			delete from res_field  where database_id = #value#
+	     ]]>
+	</delete>
+
+<!-- 查询表中的字段 -->
+	<select id="queryFieldByTableId" parameterClass="String" resultClass="field">
+			<![CDATA[
+		select 	field_id fieldId, 
+						table_id tableId, 
+						field_name fieldName, 
+						business_name businessName, 
+						attr_name attrName, 
+						field_type fieldType, 
+						attr_type attrType, 
+						is_auto_increment isAutoIncrement, 
+						is_not_null isNotNull, 
+						field_size fieldSize, 
+						field_remark fieldRemark,
+						database_id databaseId
+			from  res_field  where table_id = #value#
+	    ]]>
+	</select>
+ 
+</sqlMap>

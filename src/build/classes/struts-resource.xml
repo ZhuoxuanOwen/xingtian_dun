@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC  "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"  " http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 资源管理 -->
+	<package name="res" extends="zhuoxuan-struts-default" namespace="/resource">
+
+		<!-- 初始化添加项目 -->
+		<action name="initAddDatabase">
+			<result>/resource/database_add.jsp</result>
+		</action>
+		<!-- 数据库资源列表 -->
+		<action name="databaseList" class="dbAction" method="queryDatabase">
+			<result>/resource/database_resource.jsp</result>
+		</action>
+		<!-- 数据库表资源管理 -->
+		<action name="tableList" class="tableAction" method="queryTableList">
+			<result>/resource/table_list.jsp</result>
+		</action>
+		
+		<!-- mongodb 资源列表 -->
+		<action name="mongodbList" class="mongodbAction" method="queryMongodbList">
+			<result>/resource/mongodb_list.jsp</result>
+		</action>
+		
+
+	</package>
+
+
+
+	<!-- 项目管理异步 -->
+	<package name="resourceJson" extends="zhuoxuan-json-default" namespace="/resourceJson">
+	
+	    <!-- 获取可以使用的数据资源，就是初始化成功的 -->
+	  	<action name="aliseDatabaseList" class="dbAction" method="queryAliseDatabase">
+			<result type="json">
+				<param name="root">databases</param>
+			</result>
+		</action>
+
+		<!-- 数据库资源列表 -->
+		<action name="databaseList" class="dbAction" method="queryDatabase">
+			<result type="json">
+				<param name="root">pager</param>
+			</result>
+		</action>
+
+		<!-- 保存数据库信息 -->
+		<action name="saveDatabase" class="dbAction" method="saveDatabase">
+			<result type="json">
+				<param name="root">jsonResult</param>
+			</result>
+		</action>
+		<!-- 初始化数据库信息 -->
+		<action name="initDatabase" class="dbAction" method="initDatabase">
+			<result type="json">
+				<param name="root">jsonResult</param>
+			</result>
+		</action>
+		<!-- 数据库对应的表资源列表 -->
+		<action name="tableList" class="tableAction" method="queryTableList">
+			<result type="json">
+				<param name="root">pager</param>
+			</result>
+		</action>
+		<!-- 数据库表对应的列信息列表 -->
+		<action name="tableFieldList" class="fieldAction" method="queryTableFieldList">
+			<result type="json">
+				<param name="root">pager</param>
+			</result>
+		</action>
+		
+		
+		<!-- 代码生成器 -->
+		<action name="generatorTemplateCode" class="codeTemplateGeneratorAction" method="generatorTemplateCode">
+			<result type="json">
+				<param name="root">jsonResult</param>
+			</result>
+		</action>
+		
+	</package>
+</struts>
