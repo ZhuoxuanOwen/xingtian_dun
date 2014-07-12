@@ -53,7 +53,7 @@ public class Gen_JavaDoGenerator extends CodeTemplateGeneratorEngine {
 				
 				sb.append("\n\t/**\n\t * "+ getAliasName(cv) + "\n\t*/\n");
 				if (attr == null) {
-					sb.append("\tprivate String " + cv.getFieldName().toLowerCase() + ";\n");
+					sb.append("\tprivate String " + cv.getFieldName()+ ";\n");
 				} else {
 					sb.append("\tprivate "+cv.getAttrType()+" " + attr + ";\n");
 				}
@@ -65,15 +65,15 @@ public class Gen_JavaDoGenerator extends CodeTemplateGeneratorEngine {
 				sb.append("\n\t/**\n\t * setter for  "+ getAliasName(cv) + "\n\t*/");
 				//setter
 				if (attr == null) {
-					sb.append("\n\tpublic void set" + this.getFieldName(cv.getAttrName().toLowerCase()) + "(String " + cv.getAttrName().toLowerCase() + "){\n\t\tthis."
-							+ cv.getAttrName().toLowerCase() + "=" + cv.getAttrName().toLowerCase() + ";\n\t}\n");
+					sb.append("\n\tpublic void set" + this.getFieldName(cv.getAttrName()) + "(String " + cv.getAttrName() + "){\n\t\tthis."
+							+ cv.getAttrName() + "=" + cv.getAttrName() + ";\n\t}\n");
 				} else {
 					sb.append("\n\tpublic void set" + this.getFieldName(attr) + "("+cv.getAttrType()+" " + attr + "){\n\t\tthis." + attr + "=" + attr + ";\n\t}\n");
 				}
 				//getter
 				sb.append("\n\t/**\n\t * getter for  "+ getAliasName(cv) + "\n\t*/");
 				if (attr == null) {
-					sb.append("\n\tpublic "+cv.getAttrType()+" get" + getFieldName(cv.getAttrName().toLowerCase()) + "(){\n\t\treturn " + cv.getAttrName().toLowerCase() + ";\n\t}\n");
+					sb.append("\n\tpublic "+cv.getAttrType()+" get" + getFieldName(cv.getAttrName()) + "(){\n\t\treturn " + cv.getAttrName() + ";\n\t}\n");
 				} else {
 					sb.append("\n\tpublic "+cv.getAttrType()+" get" + getFieldName(attr) + "(){\n\t\treturn " + attr + ";\n\t}\n");
 				}

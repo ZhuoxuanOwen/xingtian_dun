@@ -1,5 +1,7 @@
 package com.zhuoxuan.xingtian.res.action;
 
+import java.net.URLEncoder;
+
 import javax.annotation.Resource;
 
 import com.zhuoxuan.common.result.ResultBase;
@@ -34,7 +36,9 @@ public class CodeTemplateGeneratorAction extends BaseAction {
 
 		ResultBase<StringBuilder> result = codeTemplateGeneratorService.generatorTemplateCode(tableId, templateDefine);
 		if (result.isSuccess()) {
-			super.setJsonResult().setContent(String.valueOf(result.getValue()));
+			
+			
+			super.setJsonResult().setContent(String.valueOf(result.getValue()) );
 		}
 		
 		return SUCCESS;

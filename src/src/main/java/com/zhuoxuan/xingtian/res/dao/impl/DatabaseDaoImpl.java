@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
 
+import com.ibatis.sqlmap.client.SqlMapClient;
 import com.zhuoxuan.common.exception.JQDaoException;
 import com.zhuoxuan.common.page.Page;
 import com.zhuoxuan.xingtian.res.dao.DatabaseDao;
@@ -20,8 +21,11 @@ import com.zhuoxuan.xingtian.res.entity.DatabaseDO;
 public class DatabaseDaoImpl extends SqlMapClientDaoSupport implements
 		DatabaseDao {
 
+	
 	public void addDatabase(DatabaseDO vo) throws JQDaoException {
 
+		
+		
 		super.getSqlMapClientTemplate().insert("database.addDatabase", vo);
 
 	}

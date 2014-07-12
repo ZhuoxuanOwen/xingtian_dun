@@ -93,7 +93,7 @@ public class MySQLV5DBEngineImpl extends DatabaseEngine {
 				FieldDO vo = new FieldDO();
 				vo.setDatabaseId(db.getDatabaseId());
 				vo.setTableId(t_id);
-				vo.setFieldName(res.getString(ColumnMySQLV5.ColumnName).toLowerCase()); //列名称
+				vo.setFieldName(res.getString(ColumnMySQLV5.ColumnName)); //列名称
 				String dataType = res.getString(ColumnMySQLV5.DataType);
 				vo.setFieldType(dataType);//数据类型
 				vo.setFieldTypeDisplay(res.getString(ColumnMySQLV5.ColumnType)); //列类型
