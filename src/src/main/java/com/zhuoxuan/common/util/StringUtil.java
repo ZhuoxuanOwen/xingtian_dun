@@ -1,9 +1,15 @@
 package com.zhuoxuan.common.util;
 
-import java.io.*;
-import java.util.*;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.Serializable;
 import java.security.MessageDigest;
-import java.text.*;
+import java.text.SimpleDateFormat;
+import java.text.StringCharacterIterator;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.StringTokenizer;
 
 /**
  * 字符串的工具类

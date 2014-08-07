@@ -2,7 +2,8 @@ package com.zhuoxuan.xingtian.res.engine.impl;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.zhuoxuan.common.constants.BuildConstants;
 import com.zhuoxuan.common.constants.BuildTaskConstants;
@@ -21,7 +22,7 @@ import com.zhuoxuan.xingtian.res.entity.TableDO;
  */
 public class Gen_SsiSqlMapGenerator extends CodeTemplateGeneratorEngine {
 
-	private static final Logger logger = Logger.getLogger(Gen_SsiSqlMapGenerator.class);
+	private  final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Override
 	public ResultBase<StringBuilder> generatorTemplateCode(BuildTaskDO buildTask , TableDO tableDO) {

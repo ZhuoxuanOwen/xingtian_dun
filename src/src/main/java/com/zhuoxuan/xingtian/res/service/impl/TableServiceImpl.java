@@ -4,7 +4,9 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import jxl.common.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
 import com.zhuoxuan.common.exception.JQDaoException;
 import com.zhuoxuan.common.exception.XTServiceException;
@@ -27,14 +29,17 @@ import com.zhuoxuan.xingtian.res.service.TableService;
  * @产品: JQSupportPlateform
  * @version： V1.0
  */
+
+@Service("tableService")
 public class TableServiceImpl implements TableService {
 
+	@Resource
 	private TableDao tableDao;
 
 	@Resource
 	private DatabaseService databaseService;
 
-	private static final Logger logger = Logger.getLogger(TableServiceImpl.class);
+	private  final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	public void setTableDao(TableDao tableDao) {
 		this.tableDao = tableDao;

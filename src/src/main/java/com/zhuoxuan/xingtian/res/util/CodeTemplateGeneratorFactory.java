@@ -2,6 +2,8 @@ package com.zhuoxuan.xingtian.res.util;
 
 import javax.annotation.Resource;
 
+import org.springframework.stereotype.Repository;
+
 import com.zhuoxuan.xingtian.res.engine.CodeTemplateGeneratorEngine;
 import com.zhuoxuan.xingtian.res.engine.impl.Gen_JavaDaoInterfaceGenerator;
 import com.zhuoxuan.xingtian.res.engine.impl.Gen_JavaDoGenerator;
@@ -16,6 +18,8 @@ import com.zhuoxuan.xingtian.res.service.CodeTempleteService;
  * @version JQ应用开发支撑平台
  * @author：高江涛
  */
+
+@Repository("codeTemplateGeneratorFactory")
 public class CodeTemplateGeneratorFactory {
 
 	@Resource

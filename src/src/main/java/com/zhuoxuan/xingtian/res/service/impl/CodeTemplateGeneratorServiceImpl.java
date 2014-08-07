@@ -2,6 +2,8 @@ package com.zhuoxuan.xingtian.res.service.impl;
 
 import javax.annotation.Resource;
 
+import org.springframework.stereotype.Service;
+
 import com.zhuoxuan.common.result.ResultBase;
 import com.zhuoxuan.xingtian.res.engine.CodeTemplateGeneratorEngine;
 import com.zhuoxuan.xingtian.res.entity.BuildConfigDO;
@@ -17,6 +19,8 @@ import com.zhuoxuan.xingtian.res.util.CodeTemplateGeneratorFactory;
  * @version JQ应用开发支撑平台
  * @author：高江涛
  */
+
+@Service("codeTemplateGeneratorService")
 public class CodeTemplateGeneratorServiceImpl implements CodeTemplateGeneratorService {
 	
 	@Resource

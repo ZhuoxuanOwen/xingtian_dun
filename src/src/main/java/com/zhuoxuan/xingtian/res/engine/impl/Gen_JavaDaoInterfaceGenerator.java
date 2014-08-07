@@ -2,7 +2,8 @@ package com.zhuoxuan.xingtian.res.engine.impl;
 
 import java.util.Date;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.zhuoxuan.common.result.ResultBase;
 import com.zhuoxuan.common.util.DateUtil;
@@ -21,7 +22,7 @@ import com.zhuoxuan.xingtian.res.entity.TableDO;
  */
 public class Gen_JavaDaoInterfaceGenerator extends CodeTemplateGeneratorEngine {
 
-	private static final Logger logger = Logger.getLogger(Gen_JavaDaoInterfaceGenerator.class);
+	private  final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Override
 	public ResultBase<StringBuilder> generatorTemplateCode(BuildTaskDO buildTaskDO, TableDO tableDO) {

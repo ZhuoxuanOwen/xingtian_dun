@@ -2,12 +2,10 @@ package com.zhuoxuan.xingtian.res.engine.impl;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import com.zhuoxuan.common.exception.XTServiceException;
-import com.zhuoxuan.common.util.ExceptionUtil;
 import com.zhuoxuan.xingtian.res.engine.ConnectionEngine;
 import com.zhuoxuan.xingtian.res.entity.DatabaseDO;
 
@@ -15,7 +13,7 @@ public class MySQLV5ConnEngineImpl extends ConnectionEngine {
 	
 	private DatabaseDO db;
 	
-	private Logger logger = Logger.getLogger(MySQLV5ConnEngineImpl.class);
+	private  final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	public Connection createConnection() throws Exception {
 		 

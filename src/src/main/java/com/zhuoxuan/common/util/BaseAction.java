@@ -1,6 +1,5 @@
 package com.zhuoxuan.common.util;
 
-import java.io.IOException;
 import java.util.Map;
 
 import javax.servlet.ServletContext;
@@ -8,17 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
-
-import org.apache.struts2.interceptor.ParameterAware;
-import org.apache.struts2.interceptor.ServletRequestAware;
-import org.apache.struts2.interceptor.ServletResponseAware;
-import org.apache.struts2.util.ServletContextAware;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import com.opensymphony.xwork2.ActionSupport;
 import com.zhuoxuan.common.page.Page;
 import com.zhuoxuan.common.page.PageContext;
 import com.zhuoxuan.common.page.PageContextImpl;
@@ -34,8 +25,7 @@ import com.zhuoxuan.common.result.JsonResult;
  * @产品: JQDevPlateform
  * @version： V1.0
  */
-public class BaseAction extends ActionSupport implements ServletRequestAware,
-		ServletResponseAware, ServletContextAware, ParameterAware {
+public class BaseAction  {
 
 	private static final long serialVersionUID = 1L;
 
@@ -154,15 +144,6 @@ public class BaseAction extends ActionSupport implements ServletRequestAware,
 		return pagerContext;
 	}
 	
-	public void printJsonObject(Object object) throws IOException{
-		JSONObject jsonObject = JSONObject.fromObject(object);
-		response.getWriter().print(jsonObject.toString());
-	}
-	
-	public void printJsonArrayObject(Object object) throws IOException{
-		JSONArray jsonArray = JSONArray.fromObject(object);
-		response.getWriter().print(jsonArray.toString());
-	}
 
 	/**
 	 * <p>

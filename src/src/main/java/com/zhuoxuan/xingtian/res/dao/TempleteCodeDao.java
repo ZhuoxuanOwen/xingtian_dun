@@ -13,7 +13,7 @@ import com.zhuoxuan.xingtian.res.entity.CodeTempleteDO;
  * 
  * @author: 高江涛
  * @创建时间：2012-07-27 09:38:50
- * @产品: 支撑平台方案
+ * @产品: 刑天盾
  * @version： V1.0
  */
 public interface TempleteCodeDao {

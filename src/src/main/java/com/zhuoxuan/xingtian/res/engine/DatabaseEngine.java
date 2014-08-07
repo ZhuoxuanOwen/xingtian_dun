@@ -7,7 +7,8 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.zhuoxuan.common.exception.XTServiceException;
 import com.zhuoxuan.common.result.ResultBase;
@@ -29,7 +30,7 @@ public abstract class DatabaseEngine {
 	protected ResultSet res;
 	protected ResultSetMetaData resmdata;
 	
-	protected Logger logger = Logger.getLogger(DatabaseEngine.class);
+	private  final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	protected void relaseResource() {
 		try {

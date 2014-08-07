@@ -4,7 +4,9 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
 import com.zhuoxuan.common.exception.XTServiceException;
 import com.zhuoxuan.common.result.ResultBase;
@@ -25,6 +27,8 @@ import com.zhuoxuan.xingtian.res.util.ResEngineFactory;
  * @version JQ应用开发支撑平台
  * @author：高江涛
  */
+
+@Service("databaseDelegateService")
 public class DatabaseDelegateServiceImpl implements DatabaseDelegateService {
 
 	@Resource
@@ -34,8 +38,7 @@ public class DatabaseDelegateServiceImpl implements DatabaseDelegateService {
 	@Resource
 	private XTExecuteThreadPool XtExecuteThreadPool;
 
-	private static final Logger logger = Logger
-			.getLogger(DatabaseDelegateServiceImpl.class);
+	private  final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Override
 	public ResultBase<Boolean> initDatabase(String databaseId)

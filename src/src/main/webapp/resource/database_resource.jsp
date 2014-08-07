@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="/struts-tags" prefix="s"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%
 	String path = request.getContextPath();
 %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=GB18030">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>数据库资源管理</title>
 <jsp:include page="/common/import_static.jsp"></jsp:include>
 <script src="<%=path%>/assets/js/lhgdialog/lhgcore.min.js"></script>
@@ -68,58 +69,60 @@
 						</thead>
 
 						<tbody>
-							<s:iterator value="databases" id="db">
+							<c:forEach items="${databases }" var="db">
 								<tr>
 									<td class="center"><label> <input type="checkbox"
-											class="ace" id="<s:property value="databaseId"/>" /> <span
+											class="ace" id="${db.databaseId }" /> <span
 											class="lbl"> </span>
 									</label></td>
 
-									<td><s:property value="businessName" /></td>
-									<td><s:property value="dbType" /></td>
-									<td><s:property value="dbName" /></td>
-									<td><s:property value="userName" /></td>
-									<td><s:property value="serverAddress" /></td>
-									<td><s:property value="serverPort" /></td>
-									<td class="hidden-480"><s:property value="tableCount" /></td>
-									<td><s:property value="dbCharset" /></td>
+									<td>${db.businessName }</td>
+									<td>${db.dbType }</td>
+									<td>${db.dbName }</td>
+									<td>${db.userName }</td>
+									<td>${db.serverAddress }</td>
+									<td>${db.serverPort }</td>
+									<td class="hidden-480">
+											${db.tableCount }
+									</td>
+									<td>${db.dbCharset }</td>
 
 									<td class="hidden-480">
-									    <s:if test="%{#db.dbStatus==4}">
-											<font color='red'><s:property value="errorMsg" /></font>
-										</s:if> <s:else>
-											<s:property value="dbRemark" />
-										</s:else></td>
-
+									  <c:choose>
+									  	<c:when test="${db.dbStatus==4 }">
+									  		<font color='red'>${db.errorMsg }</font>
+									  	</c:when>
+									  	<c:otherwise>
+									  	   ${db.dbRemark }
+									  	</c:otherwise>
+									  </c:choose>
 									<td>
-										<s:if test="%{#db.dbStatus==1}">
-											<i class="icon-spinner icon-spin orange bigger-125"></i>
-										</s:if> 
-										<s:elseif test="%{#db.dbStatus==4}">
-											<button class="btn btn-xs btn-danger"
-												onclick="initDatabase(<s:property value="databaseId"/>)">
+									  <c:choose>
+									  	<c:when test="${db.dbStatus==1 }">
+									  		<i class="icon-spinner icon-spin orange bigger-125"></i>
+									  	</c:when>
+									  	<c:when test="${db.dbStatus==4 }">
+									  		<button class="btn btn-xs btn-danger"
+												onclick="initDatabase(${db.databaseId})">
 												<i class="icon-retweet bigger-120"></i>
 											</button>
-										</s:elseif> 
-										<s:else>
-											<div class="visible-md visible-lg hidden-sm hidden-xs btn-group">
-											 
-												 
+									  	</c:when>
+									  	<c:otherwise>
+									  	   <div class="visible-md visible-lg hidden-sm hidden-xs btn-group">
 												<button class="btn btn-xs btn-info"
-													onclick="initDatabase(<s:property value="databaseId"/>)">
+													onclick="initDatabase(${db.databaseId})">
 													<i class="icon-cogs bigger-120"></i>
 												</button>
-
 												<button class="btn btn-xs btn-warning"
-													onclick="initTableList(<s:property value="databaseId"/>)">
+													onclick="initTableList(${db.databaseId})">
 													<i class="icon-calendar bigger-120"></i>
 												</button>
 											</div>
-
-										</s:else>
+									  	</c:otherwise>
+									  </c:choose>
 									</td>
 								</tr>
-							</s:iterator>
+							</c:forEach>
 
 						</tbody>
 					</table>

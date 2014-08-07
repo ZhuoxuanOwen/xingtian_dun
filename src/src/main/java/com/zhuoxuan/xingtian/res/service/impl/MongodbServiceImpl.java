@@ -4,10 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.apache.commons.lang.ObjectUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
-import com.mongodb.Mongo;
 import com.zhuoxuan.common.page.Page;
 import com.zhuoxuan.common.result.ResultBase;
 import com.zhuoxuan.xingtian.res.dao.MongodbDao;
@@ -24,13 +24,15 @@ import com.zhuoxuan.xingtian.res.service.MongodbService;
  * @产品: 刑天盾开发平台
  * @version:1.0
  */
+
+@Service("mongodbService")
 public class MongodbServiceImpl implements MongodbService {
 
 	@Resource
 	private MongodbDao mongodbDao;
 
-	private static final Logger logger = Logger.getLogger(MongodbServiceImpl.class);
-
+	private  final Logger logger = LoggerFactory.getLogger(this.getClass());
+	
 	public boolean insertMongodb(MongodbDO vo) {
 
 		try {
@@ -110,9 +112,9 @@ public class MongodbServiceImpl implements MongodbService {
 				return result.setReturnErrorMsg("对应的mongodb信息实例不存在");
 			}
 			//链接mongdodb 实例
-		    Mongo mongo = new Mongo(mongodbDO.getServerAddress(), mongodbDO.getServerPort());
+		    //Mongo mongo = new Mongo(mongodbDO.getServerAddress(), mongodbDO.getServerPort());
 
-		    List<String> mongodbList = mongo.getDatabaseNames();
+		    List<String> mongodbList = null;// mongo.getDatabaseNames();
 		    
 		    return result.setReturnRightValue(mongodbList);
 		} catch (Exception e) {

@@ -5,7 +5,9 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
 import com.zhuoxuan.common.exception.JQDaoException;
 import com.zhuoxuan.common.exception.XTServiceException;
@@ -29,14 +31,19 @@ import com.zhuoxuan.xingtian.res.service.DatabaseService;
  * @产品: JQSupportPlateform
  * @version： V1.0
  */
+
+@Service("databaseService")
 public class DatabaseServiceImpl implements DatabaseService {
 
+	@Resource
 	private DatabaseDao dbDao;
+	@Resource
 	private TableDao tableDao;
+	
 	@Resource
 	private DatabaseDelegateService databaseDelegateService;
 
-	private final static Logger logger = Logger.getLogger(DatabaseServiceImpl.class);
+	private  final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	public boolean insertDatabase(DatabaseDO vo) throws XTServiceException {
 		try {

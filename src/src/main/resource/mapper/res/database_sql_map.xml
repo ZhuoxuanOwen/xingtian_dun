@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- SurveyDO Ibatis 映射关系配置文件 -->
+<mapper namespace="com.zhuoxuan.xingtian.res.dao.DatabaseDao">
+
+
+
+	
+	<!-- 开发负责人：卓轩
+    	 功能说明：查询数据源信息 -->
+	<select id="queryDatabase" parameterType="page" resultType="databaseDO">
+	    SELECT 	database_id databaseId, 
+				business_name businessName, 
+				db_type dbType, 
+				db_name dbName, 
+				user_name userName, 
+				user_password userPassword, 
+				server_address serverAddress, 
+				server_port serverPort, 
+				db_status dbStatus, 
+				db_remark dbRemark,
+				db_charset dbCharset,
+				table_count tableCount,
+				error_msg errorMsg
+				FROM  res_database 
+				LIMIT #{start},#{pageSize}
+	</select>
+	
+</mapper>
+

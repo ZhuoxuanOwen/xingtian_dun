@@ -5,7 +5,9 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
 import com.zhuoxuan.common.exception.XTServiceException;
 import com.zhuoxuan.common.page.Page;
@@ -22,12 +24,14 @@ import com.zhuoxuan.xingtian.res.service.CodeTempleteService;
  * @产品: 支撑平台方案
  * @version： V1.0
  */
+
+@Service("codeTempleteService")
 public class CodeTempleteServiceImpl implements CodeTempleteService {
 
 	@Resource
 	private TempleteCodeDao codetempleteDao;
 
-	private static final Logger logger = Logger.getLogger(CodeTempleteServiceImpl.class);
+	private  final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	public boolean insertCodeTemplete(CodeTempleteDO vo) {
 

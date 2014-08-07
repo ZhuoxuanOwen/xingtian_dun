@@ -12,7 +12,7 @@ import com.zhuoxuan.xingtian.res.entity.MongodbDO;
  *</p> 
  * @author: 卓轩
  * @创建时间：2014-06-04 16:55:35
- * @产品: 刑天盾开发平台
+ * @产品: 刑天盾
  * @version:1.0
 */ 
 public interface MongodbDao { 

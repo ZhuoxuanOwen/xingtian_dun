@@ -1,6 +1,6 @@
 package com.zhuoxuan.xingtian.res.entity;
 
-import java.io.Serializable; 
+import java.io.Serializable;
 
 /**
  *<p>

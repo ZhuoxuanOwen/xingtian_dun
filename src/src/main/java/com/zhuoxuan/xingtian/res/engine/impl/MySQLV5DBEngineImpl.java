@@ -1,10 +1,10 @@
 package com.zhuoxuan.xingtian.res.engine.impl;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.zhuoxuan.common.exception.XTServiceException;
 import com.zhuoxuan.common.result.ResultBase;
@@ -36,7 +36,7 @@ public class MySQLV5DBEngineImpl extends DatabaseEngine {
 	private AttributeNameGenerator attrNameGentor;
 	private AttributeTypeGenerator attrTypeGentor;
 
-	private static final Logger logger = Logger.getLogger(MySQLV5DBEngineImpl.class);
+	private  final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	public List<TableDO> listDatabaseTable() throws XTServiceException {
 

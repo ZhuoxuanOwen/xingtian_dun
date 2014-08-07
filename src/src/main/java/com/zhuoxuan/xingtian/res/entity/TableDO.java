@@ -7,7 +7,7 @@ import java.util.List;
  * <p>    表 DTO    </p>
  *  @author 高江涛
  * @创建时间：Jul 9, 2012 1:12:41 PM
- * @产品: JQSupportPlateform
+ * @产品: 刑天盾
  * @version： V1.0
  */
 public class TableDO implements Serializable{

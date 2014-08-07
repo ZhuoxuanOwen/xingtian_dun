@@ -9,7 +9,7 @@ import java.io.Serializable;
  * 
  * @author 高江涛
  * @创建时间：Jul 9, 2012 1:12:07 PM
- * @产品: JQSupportPlateform
+ * @产品: 刑天盾
  * @version： V1.0
  */
 public class DatabaseDO implements Serializable {

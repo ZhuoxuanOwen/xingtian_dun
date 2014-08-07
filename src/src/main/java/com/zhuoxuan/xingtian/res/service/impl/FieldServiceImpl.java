@@ -4,7 +4,9 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
 import com.zhuoxuan.common.exception.XTServiceException;
 import com.zhuoxuan.common.result.ResultBase;
@@ -20,13 +22,15 @@ import com.zhuoxuan.xingtian.res.service.FieldService;
  * @version JQ应用开发支撑平台
  * @author：高江涛
  */
+
+@Service("fieldService")
 public class FieldServiceImpl implements FieldService {
 	
 	
 	@Resource
 	private TableDao tableDao;
 	
-	private static final Logger logger = Logger.getLogger(FieldServiceImpl.class);
+	private  final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 
 	@Override
