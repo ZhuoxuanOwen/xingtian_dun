@@ -38,18 +38,19 @@ public interface TableDao {
 	 */
 	public void deleteDbTableList(String databaseId) throws JQDaoException;
 
-	
 
 	/**
 	 * <p>
-	 * 根据TableId集删除方案模块和表的关系
+	 * 查询数据库信息下的表
 	 * </p>
 	 * 
-	 * @param tableIdStr
+	 * @param databaseId
+	 * @return
 	 * @throws JQDaoException
-	 *             void
+	 *             List<Table>
 	 */
-	public void deleteModuleTableByDatabaseId(String databaseId) throws JQDaoException;
+	public List<TableDO> queryTableListByDatabaseId(String databaseId) throws JQDaoException;
+	
 
 	/**
 	 * <p>
@@ -93,27 +94,5 @@ public interface TableDao {
 	public List<FieldDO> queryFieldByTableId(String tableId) throws JQDaoException;
 	
 	
-	/**
-	 * <p>
-	 * 查询数据库信息下的表
-	 * </p>
-	 * 
-	 * @param databaseId
-	 * @return
-	 * @throws JQDaoException
-	 *             List<Table>
-	 */
-	public List<TableDO> queryAllTableByDatabaseId(String databaseId) throws JQDaoException;
 
-
-	/**
-	 * <p>
-	 * 查询模块下的表
-	 * </p>
-	 * 
-	 * @param programId
-	 * @return List<Table>
-	 * @throws JQDaoException
-	 */
-	public List<TableDO> queryTableByJavaWebPackageId(String packageId) throws JQDaoException;
 }

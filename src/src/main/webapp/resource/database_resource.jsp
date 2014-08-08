@@ -31,7 +31,7 @@
 					<script type="text/javascript">
 						//注册数据源信息
 						function regDatabase(){
-							 var dg = new J.dialog({ id:'regDatabase',title:'请输入数据库信息',iconTitle:false,width:680,height:490,cover:true, page:'<%=path%>/resource/initAddDatabase.action'}); 
+							 var dg = new J.dialog({ id:'regDatabase',title:'请输入数据库信息',iconTitle:false,width:680,height:490,cover:true, page:'<%=path%>/res/database/initAddDatabase.do'}); 
 							 dg.ShowDialog(); 	
 						}
 						
@@ -69,7 +69,7 @@
 						</thead>
 
 						<tbody>
-							<c:forEach items="${databases }" var="db">
+							<c:forEach items="${databaseList }" var="db">
 								<tr>
 									<td class="center"><label> <input type="checkbox"
 											class="ace" id="${db.databaseId }" /> <span
@@ -140,7 +140,7 @@
 			if(!window.confirm('进入表资源详细信息？')){
 				return ;
 			}
-			location.href="<%=path%>/resource/tableList.action?databaseId="+databaseId;
+			location.href="<%=path%>/res/table/tableList.do?databaseId="+databaseId;
 		}
 		
 		//初始化数据库资源
@@ -179,7 +179,7 @@
 		}
 		
 		function refushDatabaseList(){
-			 window.location.href="<%=path%>/resource/databaseList.action";
+			 window.location.href="<%=path%>/res/database/databaseList.do";
 		}
 	</script>
 </body>

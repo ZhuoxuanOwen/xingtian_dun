@@ -48,7 +48,7 @@
 		</a>
 
 			<ul class="submenu">
-				<li><a href="<%=path%>/resource/databaseList.action" target="workcenter"> <i
+				<li><a href="<%=path%>/res/database/databaseList.do" target="workcenter"> <i
 						class="icon-double-angle-right"></i> 数据库资源
 				</a></li>
 

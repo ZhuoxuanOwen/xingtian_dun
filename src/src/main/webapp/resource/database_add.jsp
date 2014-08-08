@@ -1,5 +1,4 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
-<%@ taglib uri="/struts-tags" prefix="s"%>
 <%
 	String path = request.getContextPath();
 %>
@@ -143,14 +142,14 @@
 				 	} 
 				 	 
 				 	
-				    var param = "vo.businessName="+businessName+"&vo.dbType="+dbType;
-				    		param+="&vo.serverAddress="+serverAddress+"&vo.serverPort=" + serverPort;
-				    		param+="&vo.userName="+userName+"&vo.userPassword="+userPassword;
-				    		param+="&vo.dbName="+dbName+"&vo.dbRemark="+dbRemark;
+				    var param = "businessName="+businessName+"&dbType="+dbType;
+				    		param+="&serverAddress="+serverAddress+"&serverPort=" + serverPort;
+				    		param+="&userName="+userName+"&userPassword="+userPassword;
+				    		param+="&dbName="+dbName+"&dbRemark="+dbRemark;
 				 	
 				 	 $.ajax( {
 						type : 'post',
-						url : '<%=path%>/resourceJson/saveDatabase.action',
+						url : '<%=path%>/res/database/saveDatabase.do',
 						data : param,
 						dataType : 'json',
 					    contentType: "application/x-www-form-urlencoded;charset=UTF-8",

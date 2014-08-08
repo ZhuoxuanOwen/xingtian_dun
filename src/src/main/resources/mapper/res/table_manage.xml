@@ -6,22 +6,6 @@
 <sqlMap namespace="table">
 	<typeAlias alias="table" type="com.zhuoxuan.xingtian.res.entity.TableDO" />
 	<typeAlias alias="pager" type="com.zhuoxuan.common.page.Page" />
-	<!-- 添加表 -->
-	<insert id="addTable" parameterClass="table">
-		<![CDATA[
-		insert into res_table (databaseId,business_name,table_name,class_name,table_engine,
-			row_size,data_size,table_create_time,table_desc)
-		values(#databaseId#, #businessName#,#tableName#, #className#,#tableEngine#,
-			#tableRowSize#,#tableDataSize#,#tableCreateDate#, #tableDesc#)
-	    ]]>
-	</insert>
-
-	<!-- 删除属于数据信息的表 -->
-	<delete id="deleteDbTableList" parameterClass="String">
-		 <![CDATA[
-	 			delete from res_table  where databaseId = #value#
-	     ]]>
-	</delete>
 
 	<!-- 删除方案模块和表的关系 -->
 	<delete id="deleteModuleTable" parameterClass="String">

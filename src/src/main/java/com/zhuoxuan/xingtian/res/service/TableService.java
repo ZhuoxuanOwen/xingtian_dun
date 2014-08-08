@@ -50,12 +50,5 @@ public interface TableService {
 	 */
 	public List<TableDO> queryTableListByDatabaseId(String databaseId) throws XTServiceException;
 	
-		/**
-		 * <p> 查询JavaWeb方案信息下的所有表 </p>
-		 * @param programId
-		 * @return
-		 * @throws XTServiceException  List<Table>
-		 */
-	public List<TableDO> queryTableByJavaWebPackageId(String packageId) throws XTServiceException;
 
 }

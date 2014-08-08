@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="/struts-tags" prefix="s"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%
 	String path = request.getContextPath();
 %>
@@ -69,20 +70,20 @@
 						</thead>
 
 						<tbody>
-							<s:iterator value="tableList">
+						    <c:forEach items="${tableList }" var="table">
 								<tr>
 									<td class="center"><label> <input type="radio"
 											name="cktableId" class="ace"
-											value="<s:property value="tableId"/>" /> <span class="lbl">
+											value="${table.tableId }" /> <span class="lbl">
 										</span>
 									</label></td>
 
-									<td><s:property value="tableName" /></td>
+									<td>${table.tableName }</td>
 									<td></td>
-									<td><s:property value="className" /></td>
-									<td><s:property value="tableEngine" /></td>
-									<td><s:property value="tableRowSize" /></td>
-									<td><s:property value="tableDataSize" /></td>
+									<td>${table.className }</td>
+									<td>${table.tableEngine }</td>
+									<td>${table.tableRowSize }</td>
+									<td>${table.tableDataSize }</td>
 									<td>
 										<div
 											class="visible-md visible-lg hidden-sm hidden-xs btn-group">
@@ -134,8 +135,7 @@
 										</div>
 									</td>
 								</tr>
-							</s:iterator>
-
+							 </c:forEach>
 						</tbody>
 					</table>
 				</div>

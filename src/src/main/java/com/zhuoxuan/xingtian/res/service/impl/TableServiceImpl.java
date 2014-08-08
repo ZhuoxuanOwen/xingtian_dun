@@ -64,7 +64,7 @@ public class TableServiceImpl implements TableService {
 		if (databaseDO == null) {
 			return null;
 		}
-		List<TableDO> tableList = tableDao.queryAllTableByDatabaseId(databaseId);
+		List<TableDO> tableList = tableDao.queryTableListByDatabaseId(databaseId);
 		if (tableList != null && tableList.size() != 0) {
 			for (TableDO tableDO : tableList) {
 				tableDO.setDatabaseDO(databaseDO);
@@ -73,22 +73,6 @@ public class TableServiceImpl implements TableService {
 		return tableList;
 	}
 
-	public List<TableDO> queryTableByJavaWebPackageId(String packageId) throws XTServiceException {
-
-		// 查询出对应的表
-		List<TableDO> tables = tableDao.queryTableByJavaWebPackageId(packageId);
-
-		// 查询表下的列
-		TableDO t = null;
-		for (int i = 0; i < tables.size(); i++) {
-			t = tables.get(i);
-
-			List<FieldDO> fields = tableDao.queryFieldByTableId(t.getTableId());
-			t.setFields(fields);
-
-		}
-		return tables;
-	}
 
 	@Override
 	public ResultBase<TableDO> queryTableDOByTableId(String tableId) throws XTServiceException {
