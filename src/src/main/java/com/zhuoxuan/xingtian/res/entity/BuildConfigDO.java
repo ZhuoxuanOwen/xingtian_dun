@@ -44,7 +44,7 @@ public class BuildConfigDO implements Serializable{
 	public BuildConfigDO() {
 		super();
 		this.author = "卓轩";
-		this.packagePath = "com.mogujie.****.entity";
+		this.packagePath = "com.star.****.entity";
 		this.javaDoSuffix = "DO";
 		this.version = "1.0";
 		this.product = "刑天盾开发平台";
